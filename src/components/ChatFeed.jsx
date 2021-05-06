@@ -1,6 +1,9 @@
 import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
 import MessageForm from './MessageForm';
+import LoginForm from './LoginForm';
+import {Link, Redirect} from "react-router-dom"
+
 
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
@@ -18,6 +21,7 @@ const ChatFeed = (props) => {
     />
   ));
 
+  
   const renderMessages = () => {
     const keys = Object.keys(messages);
 
@@ -42,11 +46,15 @@ const ChatFeed = (props) => {
   };
 
   if (!chat) return <div />;
-
+  const logout=()=>{
+    localStorage.clear();
+    window.location.reload(false)
+  }
   return (
     <div className="chat-feed">
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
+        <button onClick={logout}>Logout</button>
         <div className="chat-subtitle">
           {chat.people.map((person) => ` ${person.person.username}`)}
         </div>
