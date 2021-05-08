@@ -50,11 +50,13 @@ const ChatFeed = (props) => {
     localStorage.clear();
     window.location.reload(false)
   }
+
   return (
     <div className="chat-feed">
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
         <button onClick={logout}>Logout</button>
+        
         <div className="chat-subtitle">
           {chat.people.map((person) => ` ${person.person.username}`)}
         </div>

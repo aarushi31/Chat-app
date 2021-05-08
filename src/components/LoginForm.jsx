@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react"
+import {Link} from 'react-router-dom';
 
 const LoginForm=()=>{
 
@@ -27,9 +28,13 @@ const LoginForm=()=>{
         <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)} className="input" placeholder="Username" required/>
         <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="input" placeholder="Password" required/>
         <div align="center">
-            <button type="submit" className="button">
+            <Link to="/" type="submit" className="button" onClick={handleSubmit}>
                 <span>Start Chatting</span>
-            </button>
+            </Link>
+            <br/><br/><br/><br/>
+            <Link to="/signup" className="button">
+                <span>Create new user</span>
+            </Link>
         </div>
         <h2 className="error">{error}</h2>
                 </form>
